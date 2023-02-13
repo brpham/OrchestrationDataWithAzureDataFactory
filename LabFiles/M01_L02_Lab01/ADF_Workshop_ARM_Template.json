@@ -1,0 +1,262 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "resourceLocation": {
+            "defaultValue": "eastus2",
+            "allowedValues": [
+                "australiacentral",
+                "australiacentral2",
+                "australiaeast",
+                "australiasoutheast",
+                "brazilsouth",
+                "canadacentral",
+                "canadaeast",
+                "centralindia",
+                "centralus",
+                "eastasia",
+                "eastus",
+                "eastus2",
+                "francecentral",
+                "francesouth",
+                "germanywestcentral",
+                "japaneast",
+                "japanwest",
+                "koreacentral",
+                "koreasouth",
+                "northcentralus",
+                "northeurope",
+                "southafricanorth",
+                "southafricawest",
+                "southcentralus",
+                "southeastasia",
+                "southindia",
+                "uaecentral",
+                "uaenorth",
+                "uksouth",
+                "ukwest",
+                "westcentralus",
+                "westeurope",
+                "westindia",
+                "westus",
+                "westus2"
+            ],
+            "type": "String",
+            "metadata": {
+                "description": "The location of all created resources"
+            }
+        },"uniquenessString": {
+            "type": "String",
+            "metadata": {
+                "description": "A string appended to the start of all resource names for uniqueness"
+            }
+        },
+        "userName": {
+            "type": "String",
+            "metadata": {
+                "description": "The admin user name for the SQL Server instance"
+            }
+        },
+        
+        "sqlServerPassword": {
+            "type": "SecureString",
+            "metadata": {
+                "description": "The password of the admin user of SQL Server. Must contain 3 of the 4 of uppercase, lowercase, numerics and special characters. Must not be the same as your uniquenessString or userName."
+            }
+        },
+        "pricingTier": {
+            "defaultValue": "standard",
+            "allowedValues": [
+                "standard",
+                "premium"
+            ],
+            "type": "String",
+            "metadata": {
+                "description": "The pricing tier of the databricks workspace."
+            }
+        }
+    },
+    "variables": {
+        "tenantId": "",
+        "owner": "parameters('userName')",
+        "application": "adfworkshop",
+        "region": "[resourceGroup().location]",
+        "resourceGroup": "[resourceGroup().name]",
+        "subscription": "[subscription().displayName]",
+        "dbServerName": "[concat(parameters('uniquenessString'), 'sqlserver')]",
+        "sqlDbName": "[concat(parameters('uniquenessString'), 'sqldb')]",
+        "sqlAdwName": "[concat(parameters('uniquenessString'), 'sqladw')]",
+        "dbInstances": 1,
+        "adfName": "[concat(parameters('uniquenessString'), 'adf')]",
+        "adfLocation": "[parameters('resourceLocation')]",
+        "adfInstances": 1,
+        "blobName": "[concat(parameters('uniquenessString'), 'blob')]",
+        "blobInstances": 1,
+        "databricksworkspacename": "[concat(parameters('uniquenessString'), 'databricks')]",
+        "managedResourceGroupName": "[concat('databricks-rg-', variables('databricksworkspacename'), '-', uniqueString(variables('databricksworkspacename'), resourceGroup().id))]",
+        "databrickslocation": "[parameters('resourceLocation')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Sql/servers",
+            "apiVersion": "2015-05-01-preview",
+            "name": "[variables('dbServerName')]",
+            "location": "[parameters('resourceLocation')]",
+            "tags": {
+                "name": "[variables('dbServerName')]",
+                "owner": "[variables('owner')]",
+                "application": "[variables('application')]",
+                "role": "database",
+                "serviceType": "data",
+                "serviceName": "sqldb",
+                "region": "[parameters('resourceLocation')]",
+                "resourceGroup": "[variables('resourceGroup')]",
+                "subscription": "[variables('subscription')]",
+                "userName": "[parameters('userName')]"
+            },
+            "kind": "v12.0",
+            "properties": {
+                "administratorLogin": "[parameters('userName')]",
+                "administratorLoginPassword": "[parameters('sqlServerPassword')]",
+                "version": "12.0"
+            },
+            "copy": {
+                "name": "dbresourceindex",
+                "count": "[variables('dbInstances')]"
+            }
+        },
+        {
+            "type": "Microsoft.DataFactory/factories",
+            "apiVersion": "2018-06-01",
+            "name": "[variables('adfName')]",
+            "location": "[variables('adfLocation')]",
+            "tags": {
+                "name": "[variables('adfName')]",
+                "owner": "[variables('owner')]",
+                "application": "[variables('application')]",
+                "role": "dataorchestrator",
+                "serviceType": "Integration",
+                "serviceName": "dataFactory",
+                "region": "[variables('adfLocation')]",
+                "resourceGroup": "[variables('resourceGroup')]",
+                "subscription": "[variables('subscription')]",
+                "userName": "[parameters('userName')]"
+            },
+            "properties": {},
+            "resources": [],
+            "copy": {
+                "name": "adfresourceindex",
+                "count": "[variables('adfInstances')]"
+            }
+        },
+        {
+            "type": "Microsoft.Databricks/workspaces",
+            "apiVersion": "2018-04-01",
+            "name": "[variables('databricksworkspacename')]",
+            "location": "[variables('databrickslocation')]",
+            "tags": {
+                "name": "[variables('databricksworkspacename')]",
+                "owner": "[variables('owner')]",
+                "application": "[variables('application')]",
+                "role": "processing",
+                "serviceType": "data",
+                "serviceName": "databricks",
+                "region": "[parameters('resourceLocation')]",
+                "resourceGroup": "[variables('resourceGroup')]",
+                "subscription": "[variables('subscription')]",
+                "userName": "[parameters('userName')]"
+            },
+            "sku": {
+                "name": "[parameters('pricingTier')]"
+            },
+            "properties": {
+                "ManagedResourceGroupId": "[concat(subscription().id, '/resourceGroups/', variables('managedResourceGroupName'))]"
+            }
+        },
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-04-01",
+            "name": "[variables('blobName')]",
+            "location": "[parameters('resourceLocation')]",
+            "tags": {
+                "name": "[variables('blobName')]",
+                "owner": "[variables('owner')]",
+                "application": "[variables('application')]",
+                "role": "store",
+                "serviceType": "data",
+                "serviceName": "storage",
+                "region": "[variables('region')]",
+                "resourceGroup": "[variables('resourceGroup')]",
+                "subscription": "[variables('subscription')]",
+                "userName": "[parameters('userName')]"
+            },
+            "sku": {
+                "name": "Standard_LRS",
+                "tier": "Standard"
+            },
+            "kind": "StorageV2",
+            "properties": {
+                "networkAcls": {
+                    "bypass": "AzureServices",
+                    "virtualNetworkRules": [],
+                    "ipRules": [],
+                    "defaultAction": "Allow"
+                },
+                "supportsHttpsTrafficOnly": true,
+                "encryption": {
+                    "services": {
+                        "file": {
+                            "enabled": true
+                        },
+                        "blob": {
+                            "enabled": true
+                        }
+                    },
+                    "keySource": "Microsoft.Storage"
+                },
+                "accessTier": "Hot"
+            },
+            "copy": {
+                "name": "blobInstances",
+                "count": "[variables('blobInstances')]"
+            }
+        },
+        {
+            "type": "Microsoft.Sql/servers/databases",
+            "apiVersion": "2017-03-01-preview",
+            "name": "[concat(concat(variables('dbServerName')), '/', concat(variables('sqlDbName'), 'azsqldb'))]",
+            "location": "[parameters('resourceLocation')]",
+            "dependsOn": [
+                "[concat('Microsoft.Sql/servers/', variables('dbServerName'))]"
+            ],
+            "tags": {
+                "name": "[variables('sqlDbName')]",
+                "owner": "[variables('owner')]",
+                "application": "[variables('application')]",
+                "role": "database",
+                "serviceType": "data",
+                "serviceName": "sqldb",
+                "region": "[parameters('resourceLocation')]",
+                "resourceGroup": "[variables('resourceGroup')]",
+                "subscription": "[variables('subscription')]",
+                "userName": "[parameters('userName')]"
+            },
+            "sku": {
+                "name": "S0",
+                "tier": "Standard"
+            },
+            "kind": "v12.0,user",
+            "properties": {
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "maxSizeBytes": 268435456000,
+                "catalogCollation": "SQL_Latin1_General_CP1_CI_AS",
+                "zoneRedundant": false,
+                "sampleName": "AdventureWorksLT"
+            },
+            "copy": {
+                "name": "dbresourceindex",
+                "count": "[variables('dbInstances')]"
+            }
+        }
+    ]
+}
