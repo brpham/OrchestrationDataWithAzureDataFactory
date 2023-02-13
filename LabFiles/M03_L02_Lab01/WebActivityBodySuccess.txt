@@ -1,0 +1,10 @@
+{
+    "DataFactoryName":
+        "@{pipeline().DataFactory}",
+    "PipelineName":
+        "@{pipeline().Pipeline}",
+    "PipelineStatus":
+        "Completed Successfully",
+    "EmailTo":
+        "@{pipeline().parameters.EmailTo}"
+}

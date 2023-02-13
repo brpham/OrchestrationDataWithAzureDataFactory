@@ -1,0 +1,20 @@
+{
+    "properties": {
+        "DataFactoryName": {
+            "type": "string"
+        },
+        "PipelineName": {
+            "type": "string"
+        },
+        "ErrorMessage": {
+            "type": "string"
+        },
+        "PipelineStatus": {
+            "type": "string"
+        },
+        "EmailTo": {
+            "type": "string"
+        }
+    },
+    "type": "object"
+}

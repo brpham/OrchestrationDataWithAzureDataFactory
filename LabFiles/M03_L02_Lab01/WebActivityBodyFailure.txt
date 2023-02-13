@@ -1,0 +1,10 @@
+{
+    "DataFactoryName":
+        "@{pipeline().DataFactory}",
+    "PipelineName":
+        "@{pipeline().Pipeline}",
+    "ErrorMessage":
+        "@{activity('Validate Import Rows').error.message}",
+    "EmailTo":
+        "@{pipeline().parameters.EmailTo}"
+}
