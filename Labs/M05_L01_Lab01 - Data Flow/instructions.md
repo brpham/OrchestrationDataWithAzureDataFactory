@@ -1,4 +1,4 @@
-    ![](Media/image0268.png)
+   ![](Media/image0268.png)
 
 # Data Flow in Azure Data Factory
 
@@ -100,7 +100,7 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
 3.  Click the **Toolbox/Manage** button on the left panel.
 
-        ![](Media/image0244.png)
+       ![](Media/image0244.png)
 
 4.  Under **Connections** in left panel, click on **Linked services**, if not already selected, and then click on **+New** in the middle pane.     ![](Media/image0203.png" style="width:5.34475in;height:3.01042in" />
 
@@ -127,13 +127,13 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
 1.  Click on the **Pencil/Edit** in the left pane.
 
-        ![](Media/image0220.png)
+       ![](Media/image0220.png)
 
 <!-- -->
 
 11. Create a new dataset by clicking the **+** button under **Factory** **Resources** and selecting **Dataset**.
 
-        ![](Media/image0219.png)
+       ![](Media/image0219.png)
 
 12. Select **Azure Blob Storage** and click the **Continue** button.
 
@@ -147,11 +147,11 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
 15. Click on the **Folder** button to the right of the **File path** boxes.
 
-        ![](Media/image0234.png)
+       ![](Media/image0234.png)
 
 16. Drill down to the books.csv file uploaded earlier in the exercise by double clicking on the module5 container, double clicking the originals folder, and selecting the books.csv file. Click **OK**.
 
-        ![](Media/image0233.png)
+       ![](Media/image0233.png)
 
 17. Checkmark the box for **First row as header**. Click the **OK** button.
 
@@ -159,7 +159,7 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
 18. Repeat steps 3b through 3h to create Datasets for the other files in your module5/originals folder in your Storage account. When you are done, you should have added 5 Datasets to your Data Factory.
 
-        ![](Media/image0237.png)
+       ![](Media/image0237.png)
 
 19. Now is a good time to save/publish your work.
 
@@ -181,7 +181,7 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
 In the Data Flow Properties pane to the right, enter **BookReading** for the Name.
 
-    ![](Media/image0228.png)
+   ![](Media/image0228.png)
 
 5.  Enable Data flow debug
 
@@ -191,11 +191,11 @@ In the Data Flow Properties pane to the right, enter **BookReading** for the Nam
 
 2.  Click on the Data flow debug slider in the ribbon.
 
-        ![](Media/image0227.png)
+       ![](Media/image0227.png)
 
 3.  When prompted for **Turn on data flow debug**, click **OK**.
 
-        ![](Media/image0232.png)
+       ![](Media/image0232.png)
 
 <!-- -->
 
@@ -205,7 +205,7 @@ In the Data Flow Properties pane to the right, enter **BookReading** for the Nam
 
 1.  Select the **Add Source** rectangle in the center pane
 
-        ![](Media/image0228.png)
+       ![](Media/image0228.png)
 
 2.  Click on the Dataset dropdown box and select the **bookscsv** **dataset** created in Step 3 for the books.csv file. Enter **BooksCSV** for the Output stream name.
 
@@ -267,7 +267,7 @@ In the Data Flow Properties pane to the right, enter **BookReading** for the Nam
 
 33. You should now have 5 data sources on your canvas.
 
-        ![](Media/image0250.png)
+       ![](Media/image0250.png)
 
 <!-- -->
 
@@ -321,11 +321,11 @@ In the Data Flow Properties pane to the right, enter **BookReading** for the Nam
 
 40. Select the **Plus + sign** next to AllReaders and select **Sort** under the **Row** **modifier** heading from the popup list of transformations.
 
-        ![](Media/image0239.png)
+       ![](Media/image0239.png)
 
 41. Name the output stream **SortReadingHistory**. In **Sort conditions** and select the column **Book\_Id** and **Order** ascending.
 
-        ![](Media/image0243.png)
+       ![](Media/image0243.png)
 
     (This isn’t strictly necessary but provides an easy way within the debug mode to show that data is flowing in from different source files, given our data set.)
 
@@ -339,7 +339,7 @@ In the Data Flow Properties pane to the right, enter **BookReading** for the Nam
 
 43. Select the **Plus + sign** next to the **SortReadingHistory** Output stream and select **Join**.
 
-    ![](Media/image0242.png)
+   ![](Media/image0242.png)
 
 44. Name the output stream **JoinReaderstoBooks** and select **BooksCSV** from the **Right stream** dropdown.
 
@@ -359,7 +359,7 @@ In the Data Flow Properties pane to the right, enter **BookReading** for the Nam
 
 2.  Name the Output stream **RemoveDuplicateColumns.** Scroll down through the Input column list until you see the duplicate column names from the BooksCSV output stream. Remove these duplicated columns (BooksCSV@Book\_Id, BooksCSV@ISBN and BooksCSV ISBN13) from the input columns by clicking on the delete buttons at the end of each row.
 
-        ![](Media/image0210.png)
+       ![](Media/image0210.png)
 
 <!-- -->
 
@@ -391,7 +391,7 @@ In the Data Flow Properties pane to the right, enter **BookReading** for the Nam
 
 55. Click on the **Settings** next to Sink, select **Output to single file** and enter the filename of **InnerJoinDataset.csv**. Note the warning about writing large datasets to a single file. This is not a concern with our dataset.
 
-        ![](Media/image0214.png)
+       ![](Media/image0214.png)
 
 56. On **Optimize** tab, set partition option to be **Single partition**.
 
@@ -403,13 +403,13 @@ In the Data Flow Properties pane to the right, enter **BookReading** for the Nam
 
 57. Select the **Plus + sign** next to the **BooksCSV** Source and select **Join**.
 
-        ![](Media/image0212.png)
+       ![](Media/image0212.png)
 
 58. Name this output stream **JoinReadersToBooksOuter**.
 
 59. Select **SortReaderHistory** as the **Right stream** and Right outer as the **Join Type** and add 2 columns to the Join conditions: **Book\_Id** and **ISBN**.
 
-        ![](Media/image0205.png)
+       ![](Media/image0205.png)
 
     This output stream will include all reader history records even if there is no matching record in the BooksCSV source.
 
@@ -487,7 +487,7 @@ In the Data Flow Properties pane to the right, enter **BookReading** for the Nam
 
 64. Rename the pipeline **plRunBookReadingDataflow**
 
-        ![](Media/image0206.png)
+       ![](Media/image0206.png)
 
 65. Expand **Move & Transform** and drag the **Data Flow** activity onto the canvas.
 
@@ -495,11 +495,11 @@ In the Data Flow Properties pane to the right, enter **BookReading** for the Nam
 
 66. Under General, name the activity **Run BookReading Flow**.
 
-        ![](Media/image0222.png)
+       ![](Media/image0222.png)
 
 67. Click on the **Settings** tab. Select the **BookReading** data flow from the Data flow drop down. Leave the Integration Runtime default values.
 
-        ![](Media/image0221.png)
+       ![](Media/image0221.png)
 
 68. Select **Publish all**.
 
@@ -531,6 +531,6 @@ In the Data Flow Properties pane to the right, enter **BookReading** for the Nam
 
 71. After the Data flow is complete, you can see the statistics for the time and number of rows processed. Compare the outputs from the two csv files, ReadBooksInnerJoin and ReadBooksOuterJoin . Why were there differences in the rows returned in each of the csv files?
 
-        ![](Media/image0217.png)
+       ![](Media/image0217.png)
 
 Exercise 5 has been completed.
