@@ -107,7 +107,7 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
 1.  In the Azure portal, navigate to the ADF instance you previously provisioned and then launch the Azure Data Factory UI by selecting Open in the ADF blade
 
-       ![](Media/image0159.png)
+      ![](Media/image0159.png)
 
 <!-- -->
 
@@ -130,7 +130,7 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
     5.  Select your **Subscription** then your **Azure Storage Account** from the dropdown and click the **Create** button.
 
->     ![](Media/image0166.png)
+>    ![](Media/image0166.png)
 
 6.  Configure the Azure SQL Database Linked Service in ADF
 
