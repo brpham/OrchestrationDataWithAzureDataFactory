@@ -90,7 +90,7 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
 2.  Select the **Open Azure Data Factory Studio** tile to start the Azure Data Factory user interface (UI) application.
 
->    
+    
  ![](Media/image0231.png)
 2.  Configure the Azure Storage Linked Service in ADF
 
@@ -528,7 +528,7 @@ In the Data Flow Properties pane to the right, enter **BookReading** for the Nam
 
 70. The screenshot below shows the transformation activities being run. The screen will refresh every 60 seconds until the run is complete if Auto refresh is on (as shown below.) Note the time AcquiringCompute in the upper right corner – this will take approximately 6 minutes.
 
->     ![](Media/image0224.png)
+     ![](Media/image0224.png)
 
 71. After the Data flow is complete, you can see the statistics for the time and number of rows processed. Compare the outputs from the two csv files, ReadBooksInnerJoin and ReadBooksOuterJoin . Why were there differences in the rows returned in each of the csv files?
 
