@@ -113,7 +113,7 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
 1.  In the Azure portal, navigate to the ADF instance you previously provisioned and then launch the Azure Data Factory UI by selecting Open in the ADF blade
 
-        ![](Media/image0159.png)
+       ![](Media/image0159.png)
 
 <!-- -->
 
@@ -144,7 +144,7 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
 1.  From the Toolbox/Manage button from the left panel, under **Linked services**, select **+New**.
 
-        ![](Media/image0168.png)
+      ![](Media/image0168.png)
 
 2.  On the Data Store tab, select **Azure SQL Database** and click the **Continue** button.
 
@@ -176,11 +176,11 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
 10. Click on the **Author/Pencil** button in the left pane.
 
-        ![](Media/image0164.png)
+       ![](Media/image0164.png)
 
 11. Create a new dataset by clicking the **+** button and selecting **Dataset**
 
-        ![](Media/image0183.png)
+       ![](Media/image0183.png)
 
 12. Select **Azure Blob Storage** and then **Continue**.
 
@@ -228,7 +228,7 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
 19. Switch to the **Source** tab. Select the **ProductsCSV** dataset.
 
-        ![](Media/image0187.png)
+      ![](Media/image0187.png)
 
 20. Switch to the **Sink** tab. Select the **ProductsStaging** Linked Service for the destination we will copy to. Set the Storage Procedure Name to **None**.
 
@@ -256,7 +256,7 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
 25. Switch to the **Settings** tab and select your SQL Linked Service **\[SalesLT\].\[usp\_CheckProductStaging\]** from the drop-down list.
 
-        ![](Media/image0175.png)
+      ![](Media/image0175.png)
 
 26. Select **Save a**ll (if Git configured) then **Publish** on the Pipeline to deploy changes.
 
@@ -268,7 +268,7 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
 1.  In the Azure Portal, enter **Logic** **app** in the search bar, then click Add or **Create**
 
-        ![](Media/image0178.png)
+      ![](Media/image0178.png)
 
 <!-- -->
 
@@ -282,7 +282,7 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
 31. Check no for Enable log analytics
 
-        ![](Media/image0180.png)
+     ![](Media/image0180.png)
 
 32. Click **Review and Create**, then **Create**.
 
@@ -345,7 +345,7 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
     Hint: if you do not see the json parameters when your cursor is in any of the Email required fields, click on the **See more** hyperlink in the Dynamic content section.
 
-        ![](Media/image0196.png)
+      ![](Media/image0196.png)
 
 39. **Save** when ready.  
         ![](Media/image0199.png)
@@ -353,7 +353,7 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 40. Expand the **HTTP request** trigger and copy the **HTTP Post URL** for later reference (into Notepad or similar).  
         ![](Media/image0202.png)
 
-        ![](Media/image0201.png)
+      ![](Media/image0201.png)
 
 <!-- -->
 
@@ -417,11 +417,11 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
     1.  Right click on your Send Failure Notification Web activity and select **Copy**
 
-            ![](Media/image0189.png)
+          ![](Media/image0189.png)
 
     2.  Right click on the whitespace of the pipeline canvas and choose **Paste**
 
-            ![](Media/image0192.png)
+          ![](Media/image0192.png)
 
     3.  Rename your new Web activity to Send Success Notification
 
@@ -467,11 +467,11 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
 51. Select the **Validate Import Rows** activity and notice the Add output icon in the lower right corner of the activity.
 
-        ![](Media/image0193.png)
+      ![](Media/image0193.png)
 
 52. Click on the Add output icon and choose **Failure**.
 
-        ![](Media/image0174.png)
+      ![](Media/image0174.png)
 
 53. The pipeline will look like this:  
         ![](Media/image0155.png)
@@ -590,7 +590,7 @@ For more on Logical Functions see <https://docs.microsoft.com/en-us/azure/data-f
 
 75. Click on the Pencil for to the Case = True.
 
-        ![](Media/image0169.png)
+      ![](Media/image0169.png)
 
 76. This will open a new child designer surface. Notice the context path within the pipeline above the designer surface.  
         ![](Media/image0167.png)
@@ -611,7 +611,7 @@ For more on Logical Functions see <https://docs.microsoft.com/en-us/azure/data-f
 
 82. Navigate back to the main designer surface of the pipeline using the contextual path at the top of the designer surface. In other words, click on the **pipeline\_ImportData\_Control** hyperlink.
 
-        ![](Media/image0171.png)
+      ![](Media/image0171.png)
 
 83. Click on the Pencil for to the Case = False. Again, this opens a child designer surface.
 
@@ -642,7 +642,7 @@ For more on Logical Functions see <https://docs.microsoft.com/en-us/azure/data-f
 
 1.  Using the same methods as in the earlier exercise execute the pipeline **pipeline\_ImportData\_Control** and observe the paths used. In the following screenshot the execution has followed the False conditional path.  
       
-        ![](Media/image0160.png)
+      ![](Media/image0160.png)
 
 <!-- -->
 
