@@ -202,8 +202,8 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
 5.  Select the **Linked Service** you created earlier in this exercise, and the table **\[SalesLT\].\[ProductStaging\]**.
 
->     ![](Media/image0185.png)
-
+>     
+![](Media/image0185.png)
 17. Select **OK** to save the dataset.
 
 <!-- -->
@@ -216,8 +216,8 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
 2.  Under **Activities**, expand the **Move** **&** **transform** and drag the **Copy Data** activity to the designer surface.
 
->     ![](Media/image0188.png)
-
+>      
+ ![](Media/image0188.png)
 18. In the Copy Data General tab, set the Name to **Import CSV**.
 
 19. Switch to the **Source** tab. Select the **ProductsCSV** dataset.
@@ -230,8 +230,8 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
 21. Switch to the **Mapping** tab. Choose **Import Schemas.** Remove the **row for the StagingID column** by clicking the check box to the left and click **Delete**.
 
->     ![](Media/image0177.png)
-
+>     
+   ![](Media/image0177.png)
 22. If you have Git configured, click the **Save all** button to save your changes.
 
 23. Click the **Publish** button to save the changes to the Pipeline before proceeding.
@@ -497,7 +497,8 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
 60. Execute the pipeline again. This time it should follow the Failure path due to the conditions in our validation stored procedure. You should also receive an email message reporting the failure.
 
-61.     ![](Media/image0158.png)
+61.     
+    ![](Media/image0158.png)
 
 Exercise 2 has been completed.
 
