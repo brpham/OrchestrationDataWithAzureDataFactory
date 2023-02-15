@@ -115,7 +115,7 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
 9.  Once successfully tested, select **Create**.
 
-10.     ![](Media/image0215.png)
+10.    ![](Media/image0215.png)
 
 <!-- -->
 
