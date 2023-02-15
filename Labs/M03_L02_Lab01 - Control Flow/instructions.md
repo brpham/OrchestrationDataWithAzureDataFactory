@@ -136,7 +136,7 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
     5.  Select your **Subscription** then your **Azure Storage Account** from the dropdown and click the **Create** button.
 
->     ![](Media/image0166.png)
+     ![](Media/image0166.png)
 
 6.  Configure the Azure SQL Database Linked Service in ADF
 
@@ -503,7 +503,8 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
 60. Execute the pipeline again. This time it should follow the Failure path due to the conditions in our validation stored procedure. You should also receive an email message reporting the failure.
 
-61.     ![](Media/image0158.png)
+61.
+ ![](Media/image0158.png)
 
 Exercise 2 has been completed.
 
