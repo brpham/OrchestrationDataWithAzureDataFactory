@@ -107,7 +107,7 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
 1.  In the Azure portal, navigate to the ADF instance you previously provisioned and then launch the Azure Data Factory UI by selecting Open in the ADF blade
 
-        ![](Media/image0159.png)
+       ![](Media/image0159.png)
 
 <!-- -->
 
