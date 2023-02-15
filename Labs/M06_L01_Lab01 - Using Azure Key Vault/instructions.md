@@ -1,4 +1,4 @@
-    ![](Media/image0262.png)
+   ![](Media/image0262.png)
 
 # Azure Data Factory v2 Security 
 
