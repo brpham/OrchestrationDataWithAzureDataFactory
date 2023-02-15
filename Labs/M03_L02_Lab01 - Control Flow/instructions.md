@@ -1,6 +1,5 @@
-    ![](Media/image0184.png)
-    
 
+   
  
 
 # Control Flow with Azure Data Factory
@@ -62,9 +61,12 @@ This step will take you through preparing your environment for the exercises whi
 
 1.  Using either SSMS, Azure Data Studio or the Azure Portal connect to your **Azure SQL Database.** To get your SQL Server name, navigate to SQL Servers in the Azure Portal, click on your SQL Server, click on the **Properties** section under **Settings** and copy your Server name.
 
-        ![](Media/image0181.png)
+
+![](Media/image0181.png)
 
 2.  Run the following scripts, in order, against the database to create the required database objects.
+
+
 
     \\LabFiles\\M03\_L02\_Lab1\\SalesLT\_ProductStaging.sql  
     \\LabFiles\\M03\_L02\_Lab1\\SalesLT\_usp\_CheckProductStaging.sql  
