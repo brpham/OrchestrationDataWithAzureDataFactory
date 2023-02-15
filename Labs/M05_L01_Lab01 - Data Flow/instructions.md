@@ -102,8 +102,9 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
        ![](Media/image0244.png)
 
-4.  Under **Connections** in left panel, click on **Linked services**, if not already selected, and then click on **+New** in the middle pane.     ![](Media/image0203.png" style="width:5.34475in;height:3.01042in" />
-
+4.  Under **Connections** in left panel, click on **Linked services**, if not already selected, and then click on **+New** in the middle pane.     
+      ![](Media/image0203.png)
+      
 5.  Select the **Azure Blob Storage** type and click the **Continue** button.  
         ![](Media/image0216.png)
 
