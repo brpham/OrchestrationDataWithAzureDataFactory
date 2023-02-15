@@ -90,8 +90,8 @@ This exercise shows the benefits of using Control Flow within your pipeline.
 
 2.  Select the **Open Azure Data Factory Studio** tile to start the Azure Data Factory user interface (UI) application.
 
->     ![](Media/image0231.png)
-
+>    
+ ![](Media/image0231.png)
 2.  Configure the Azure Storage Linked Service in ADF
 
 <!-- -->
@@ -209,7 +209,8 @@ In the Data Flow Properties pane to the right, enter **BookReading** for the Nam
 
 2.  Click on the Dataset dropdown box and select the **bookscsv** **dataset** created in Step 3 for the books.csv file. Enter **BooksCSV** for the Output stream name.
 
->     ![](Media/image0230.png)
+>     
+   ![](Media/image0230.png)
 
 21. Select the **Projection** tab and set the following columns to integer type, with a format of \#\#0:
 
@@ -227,8 +228,8 @@ In the Data Flow Properties pane to the right, enter **BookReading** for the Nam
 
 23. Leave the remaining columns as string.
 
->     ![](Media/image0247.png)
-
+>     
+![](Media/image0247.png)
 24. Select the **Data Preview** tab and click **Refresh** to preview the data. (If your Debug cluster is still starting, you will see a “Please wait..” message. Click **Refresh** to display the data after the cluster has started.)
 
 25. Select the **Add Source** area under the last source you created.
@@ -289,7 +290,7 @@ In the Data Flow Properties pane to the right, enter **BookReading** for the Nam
 
 36. For Columns type, enter the column name **Reader** and for the expression enter **Trixie Belden**, enclosed in single quotes.
 
->     ![](Media/image0248.png)
+    ![](Media/image0248.png)
 
 37. Repeat step 7a through 7d to create a Derived Column called Reader for the other Reader History data sources, entering their full names as shown below:
 
@@ -305,11 +306,11 @@ In the Data Flow Properties pane to the right, enter **BookReading** for the Nam
 
 1.  Select the **+ plus** sign next to **AddReaderNameT** and select **Union**.
 
->     ![](Media/image0241.png)
+     ![](Media/image0241.png)
 
 38. Name the output stream **AllReaders**. In the **Union with** field select **AddReaderNameK**. Click the plus sign and add rows for **AddReaderNameS** and **AddReaderNameM**, so all readers have their reading history in one stream.
 
->     ![](Media/image0240.png)
+     ![](Media/image0240.png)
 
 39. Under the Inspect tab, you can see how the columns have been aligned for the join, including the blanks from the columns missing from the files for KeikosHistory and MinervasHistory. Also note that the out of order columns are now aligned.
 
@@ -345,7 +346,7 @@ In the Data Flow Properties pane to the right, enter **BookReading** for the Nam
 
 45. Set the Join type to **Inner** and add 2 columns to the Join conditions: **Book\_Id** and **ISBN**.
 
->     ![](Media/image0211.png)
+     ![](Media/image0211.png)
 
 46. Go to the **Data Preview** tab which now shows duplicate columns in the dataset, Book\_Id, ISBN and ISBN13. We should remove them to avoid any confusion for the users of our data.
 
@@ -387,7 +388,7 @@ In the Data Flow Properties pane to the right, enter **BookReading** for the Nam
 
 54. Select **OK**.
 
->     ![](Media/image0209.png)
+     ![](Media/image0209.png)
 
 55. Click on the **Settings** next to Sink, select **Output to single file** and enter the filename of **InnerJoinDataset.csv**. Note the warning about writing large datasets to a single file. This is not a concern with our dataset.
 
@@ -395,7 +396,7 @@ In the Data Flow Properties pane to the right, enter **BookReading** for the Nam
 
 56. On **Optimize** tab, set partition option to be **Single partition**.
 
->     ![](Media/image0213.png)
+     ![](Media/image0213.png)
 
 13. Second join of the books and reader data
 
@@ -461,7 +462,7 @@ In the Data Flow Properties pane to the right, enter **BookReading** for the Nam
 
 62. Your Data Flow should look similar to the screenshot below.
 
->     ![](Media/image0204.png)
+     ![](Media/image0204.png)
 
 16. Save and Publish the Data Flow
 
@@ -519,7 +520,7 @@ In the Data Flow Properties pane to the right, enter **BookReading** for the Nam
 
 1.  Select Monitor on the left side of the portal, and see the pipeline running. Click on the **Pipeline name**.
 
->     ![](Media/image0226.png)
+     ![](Media/image0226.png)
 
 69. Select the glasses icon to see the **details** of the activity.
 
